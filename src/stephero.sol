@@ -1,9 +1,5 @@
 contract Marketplace {
-
-
-     * INFORMATIONAL SEVERITY:
-  
-
+ 
         struct_1137[] _items; 
         struct_1138[] _offers;
         mapping (uint256 => uint8) map_3; 
