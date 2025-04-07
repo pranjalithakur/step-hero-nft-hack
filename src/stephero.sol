@@ -4,6 +4,21 @@
 
 contract Marketplace {
 
+    /**
+     * INFORMATIONAL SEVERITY:
+     * --------------------------------
+     * The contract employs explicit checks on `msg.data.length` in many functions
+     * (e.g., `require(msg.data.length - 4 >= 32);`), which is not a typical pattern in modern Solidity.
+     *
+     * While these checks are likely introduced by the decompilation process and do not constitute a direct
+     * security vulnerability, they can complicate interactions with the contract. In particular, they might
+     * affect function selector resolution when interacting via fallback functions or proxy patterns.
+     *
+     * It is recommended to review these checks to confirm they do not introduce unintended side effects
+     * or interoperability issues with other contracts.
+     * --------------------------------
+     */
+
     // Data structures and variables inferred from the use of storage instructions
     struct_1137[] _items; // STORAGE[0x1]
     struct_1138[] _offers; // STORAGE[0x2]
@@ -20,6 +35,7 @@ contract Marketplace {
     address _owner; // STORAGE[0x0] bytes 0 to 19
     uint8 _paused; // STORAGE[0x0] bytes 20 to 20
 
+    // Struct definitions
     struct struct_1138 { address field0; uint256 field1; uint256 field2; address field3; uint256 field4; uint256 field5; };
     struct struct_1137 { address field0; uint256 field1; address field2; uint256 field3; uint256 field4; uint256 field5; uint256 field6; address field7; uint256 field8; uint256 field9; };
     struct struct_1143 { uint160 field0_0_19; uint8 field0_20_20; };
@@ -36,7 +52,7 @@ contract Marketplace {
         revert();
     }
 
-    function supportsInterface(bytes4 interfaceId) public nonPayable {  find similar
+    function supportsInterface(bytes4 interfaceId) public nonPayable {  // find similar
         require(msg.data.length - 4 >= 32);
         v0 = v1 = 0x4e2312e000000000000000000000000000000000000000000000000000000000 == interfaceId;
         if (0x4e2312e000000000000000000000000000000000000000000000000000000000 != interfaceId) {
@@ -382,7 +398,7 @@ contract Marketplace {
         require(msg.data.length - 4 >= 64);
         return owner_5[varg0][varg1];
     }
-
+ 
     function createOffer(uint256 varg0, uint256 varg1, uint256 varg2, address varg3, address varg4) public payable {  find similar
         require(msg.data.length - 4 >= 160);
         require(!_paused, Error('Pausable: paused'));
