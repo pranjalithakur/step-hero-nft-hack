@@ -1,19 +1,19 @@
 contract Marketplace {
  
-        struct_1137[] _items; 
-        struct_1138[] _offers;
-        mapping (uint256 => uint8) map_3; 
-        mapping (uint256 => struct_1143) owner_4; 
-        mapping (uint256 => mapping (uint256 => uint256)) owner_5; 
-        mapping (uint256 => uint256) _poolAmount; 
-        mapping (uint256 => mapping (uint256 => uint256)) owner_7; 
-        mapping (uint256 => uint256) map_8;
-        uint256 stor_9; 
-        uint256 stor_a; 
-        uint256 _ownerCutPerMillion; 
-        uint256 _referralFee; 
-        address _owner; 
-        uint8 _paused; 
+    struct_1137[] _items; 
+    struct_1138[] _offers;
+    mapping (uint256 => uint8) map_3; 
+    mapping (uint256 => struct_1143) owner_4; 
+    mapping (uint256 => mapping (uint256 => uint256)) owner_5; 
+    mapping (uint256 => uint256) _poolAmount; 
+    mapping (uint256 => mapping (uint256 => uint256)) owner_7; 
+    mapping (uint256 => uint256) map_8;
+    uint256 stor_9; 
+    uint256 stor_a; 
+    uint256 _ownerCutPerMillion; 
+    uint256 _referralFee; 
+    address _owner; 
+    uint8 _paused; 
 
     struct struct_1138 { address field0; uint256 field1; uint256 field2; address field3; uint256 field4; uint256 field5; };
     struct struct_1137 { address field0; uint256 field1; address field2; uint256 field3; uint256 field4; uint256 field5; uint256 field6; address field7; uint256 field8; uint256 field9; };
