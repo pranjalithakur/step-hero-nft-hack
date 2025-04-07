@@ -1,46 +1,28 @@
-// Decompiled by library.dedaub.com
-// 2024.05.19 18:13 UTC
-// Compiled using the solidity compiler version 0.8.4
-
 contract Marketplace {
 
-    /**
+
      * INFORMATIONAL SEVERITY:
-     * --------------------------------
-     * The contract employs explicit checks on `msg.data.length` in many functions
-     * (e.g., `require(msg.data.length - 4 >= 32);`), which is not a typical pattern in modern Solidity.
-     *
-     * While these checks are likely introduced by the decompilation process and do not constitute a direct
-     * security vulnerability, they can complicate interactions with the contract. In particular, they might
-     * affect function selector resolution when interacting via fallback functions or proxy patterns.
-     *
-     * It is recommended to review these checks to confirm they do not introduce unintended side effects
-     * or interoperability issues with other contracts.
-     * --------------------------------
-     */
+  
 
-    // Data structures and variables inferred from the use of storage instructions
-    struct_1137[] _items; // STORAGE[0x1]
-    struct_1138[] _offers; // STORAGE[0x2]
-    mapping (uint256 => uint8) map_3; // STORAGE[0x3]
-    mapping (uint256 => struct_1143) owner_4; // STORAGE[0x4]
-    mapping (uint256 => mapping (uint256 => uint256)) owner_5; // STORAGE[0x5]
-    mapping (uint256 => uint256) _poolAmount; // STORAGE[0x6]
-    mapping (uint256 => mapping (uint256 => uint256)) owner_7; // STORAGE[0x7]
-    mapping (uint256 => uint256) map_8; // STORAGE[0x8]
-    uint256 stor_9; // STORAGE[0x9]
-    uint256 stor_a; // STORAGE[0xa]
-    uint256 _ownerCutPerMillion; // STORAGE[0xb]
-    uint256 _referralFee; // STORAGE[0xc]
-    address _owner; // STORAGE[0x0] bytes 0 to 19
-    uint8 _paused; // STORAGE[0x0] bytes 20 to 20
+        struct_1137[] _items; 
+        struct_1138[] _offers;
+        mapping (uint256 => uint8) map_3; 
+        mapping (uint256 => struct_1143) owner_4; 
+        mapping (uint256 => mapping (uint256 => uint256)) owner_5; 
+        mapping (uint256 => uint256) _poolAmount; 
+        mapping (uint256 => mapping (uint256 => uint256)) owner_7; 
+        mapping (uint256 => uint256) map_8;
+        uint256 stor_9; 
+        uint256 stor_a; 
+        uint256 _ownerCutPerMillion; 
+        uint256 _referralFee; 
+        address _owner; 
+        uint8 _paused; 
 
-    // Struct definitions
     struct struct_1138 { address field0; uint256 field1; uint256 field2; address field3; uint256 field4; uint256 field5; };
     struct struct_1137 { address field0; uint256 field1; address field2; uint256 field3; uint256 field4; uint256 field5; uint256 field6; address field7; uint256 field8; uint256 field9; };
     struct struct_1143 { uint160 field0_0_19; uint8 field0_20_20; };
 
-    // Events
     ChangedOwnerCutPerMillion(uint256);
     Buy(address, uint256, uint256);
     CancelOffer(address, uint256, uint256);
@@ -52,7 +34,7 @@ contract Marketplace {
         revert();
     }
 
-    function supportsInterface(bytes4 interfaceId) public nonPayable {  // find similar
+    function supportsInterface(bytes4 interfaceId) public nonPayable {  
         require(msg.data.length - 4 >= 32);
         v0 = v1 = 0x4e2312e000000000000000000000000000000000000000000000000000000000 == interfaceId;
         if (0x4e2312e000000000000000000000000000000000000000000000000000000000 != interfaceId) {
